@@ -43,11 +43,16 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call?, e: IOException?) {
                 println("Failure")
+
             }
         })
     }
 }
+internal class Conversions(){
+    public fun ftoC(x: Double) {
 
+    }
+}
 class Weather(
         val timezone: String,
         val currently: Currently
