@@ -2,6 +2,7 @@ package noteasy.kotlinapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getJson(torontoAddress)
+        recycle.layoutManager=LinearLayoutManager(this)
     }
     private fun getJson(torontoFull:String) {
         println("Getting Json")
@@ -29,8 +31,12 @@ class MainActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object:Callback{
             override fun onResponse(call: Call?, response: Response?) {
                 val body=response?.body()?.string()
+                println(body)
                 val gson=GsonBuilder().create()
                 val Weather=gson.fromJson(body,Weather::class.java)
+                runOnUiThread{
+                    recycle.adapter=MainAdapter(Weather)
+                }
                 println(Weather.timezone)
             }
             override fun onFailure(call: Call?, e: IOException?) {
