@@ -15,7 +15,6 @@ import java.io.IOException
 import java.nio.file.WatchEvent
 
 class MainActivity : AppCompatActivity() {
-    var toronto = 6167865
     var weatherTest: String = ""
     var torontoAddress: String = "https://api.darksky.net/forecast/6e0b8d2d59339c4e55989aa2ff4e6d8b/43.6332,-79.4186"
     override fun onCreate(savedInstanceState: Bundle?) {
