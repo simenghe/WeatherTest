@@ -1,18 +1,12 @@
 package noteasy.kotlinapp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.KotlinJsonAdapterFactory
-import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.info_row.*
 import okhttp3.*
 import java.io.IOException
-import java.nio.file.WatchEvent
 
 class MainActivity : AppCompatActivity() {
     var weatherTest: String = ""
@@ -48,19 +42,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
-internal class Conversions(){
-    public fun ftoC(x: Double) {
-
-    }
-}
 class Weather(
         val timezone: String,
         val currently: Currently
 )
-
 class Currently(
         val summary: String,
-        val temperature: Double
+        val temperature: Double,
+        val icon:String
 )
 
 
