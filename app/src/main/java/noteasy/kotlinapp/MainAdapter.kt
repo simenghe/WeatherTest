@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.info_row.view.txtOnline
  */
 class MainAdapter(val weather:Weather): RecyclerView.Adapter<CustomView>(){
     override fun getItemCount(): Int {
-        return 1
+        return 3
     }
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CustomView {
         val layoutInflater = LayoutInflater.from(parent?.context)
